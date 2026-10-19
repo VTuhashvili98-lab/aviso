@@ -1,8 +1,8 @@
-from service import check_new_schedule
+from telegram_service import send_telegram_message
 
 
 def main():
-    print(check_new_schedule())
+    send_telegram_message("Тестовое уведомление от Aviso")
 
 
 if __name__ == "__main__":

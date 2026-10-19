@@ -4,6 +4,8 @@ from pathlib import Path
 import httpx
 from datetime import date, timedelta
 
+from telegram_service import send_telegram_message
+
 BASE_DIR = Path(__file__).resolve().parent
 STATE_FILE = BASE_DIR / "state.json"
 
@@ -45,5 +47,6 @@ def check_new_schedule() -> bool:
     last_document_id = load_last_document_id()
     if last_document_id == tomorrow_document_id:
         return False
+    send_telegram_message("Появилось новое расписание!")
     save_last_document_id(tomorrow_document_id)
     return True
