@@ -36,3 +36,14 @@ def load_last_document_id() -> int | None:
 def save_last_document_id(document_id: int) -> None:
     with open(STATE_FILE, "w", encoding="utf-8") as file:
         json.dump({"last_document_id": document_id}, file, indent=4)
+
+
+def check_new_schedule() -> bool:
+    tomorrow_document_id = get_tomorrow_document_id()
+    if tomorrow_document_id is None:
+        return False
+    last_document_id = load_last_document_id()
+    if last_document_id == tomorrow_document_id:
+        return False
+    save_last_document_id(tomorrow_document_id)
+    return True

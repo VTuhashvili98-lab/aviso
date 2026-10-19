@@ -1,9 +1,8 @@
-from service import load_last_document_id, save_last_document_id
+from service import check_new_schedule
 
 
 def main():
-    save_last_document_id(3379)
-    print(load_last_document_id())
+    print(check_new_schedule())
 
 
 if __name__ == "__main__":
