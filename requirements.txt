@@ -1,7 +1,6 @@
 amqp==5.4.1
 anyio==4.15.1
 billiard==4.3.1
-celery==5.6.3
 certifi==2026.10.18
 charset-normalizer==3.5.2
 click==8.5.0
@@ -21,7 +20,6 @@ Pygments==2.21.0
 pytest==9.1.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.4
-redis==6.4.0
 six==1.17.0
 typing_extensions==4.16.0
 tzdata==2026.5

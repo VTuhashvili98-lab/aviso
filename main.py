@@ -1,8 +1,22 @@
-from telegram_service import send_telegram_message
+import logging
+
+from service import check_new_schedule
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+)
 
 
-def main():
-    send_telegram_message("Тестовое уведомление от Aviso")
+def main() -> None:
+    logging.info("Начинаем проверку расписания")
+
+    is_new = check_new_schedule()
+
+    if is_new:
+        logging.info("Новое расписание обнаружено, уведомление отправлено")
+    else:
+        logging.info("Нового расписания нет")
 
 
 if __name__ == "__main__":
